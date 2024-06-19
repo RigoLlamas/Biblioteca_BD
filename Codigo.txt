@@ -1,0 +1,10 @@
+create database biblioteca;
+
+use biblioteca;
+
+Create table Usuario (ID_Usuario bigint(20) PRIMARY KEY,Nombre varchar(30), ApeP varchar(30), ApeM varchar(30), Domicilio varchar(50), Telefono bigint(20), Correo varchar(30));
+
+Create table Copia (Codigo bigint(20) PRIMARY KEY,ISBN bigint(13), Pasillo int, Fila int); 
+
+create table Retira (Num_Retiro bigint(20) PRIMARY KEY,Usuario bigint(20), FOREIGN KEY (Usuario) REFERENCES Usuario(ID_Usuario),Copia bigint(20),FOREIGN KEY (Copia) References Copia(Codigo), Fecha_Entrada date, Fecha_Salida date);
+
